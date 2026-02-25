@@ -29,7 +29,7 @@
         }
         
         .header {
-            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -51,7 +51,7 @@
         
         .puzzle {
             background: #24344d;
-            border-left: 5px solid #00b4db;
+            border-left: 5px solid #667eea;
             border-radius: 10px;
             padding: 25px;
             margin-bottom: 25px;
@@ -60,18 +60,18 @@
         
         .puzzle:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(0, 180, 219, 0.3);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.3);
         }
         
         .puzzle h2 {
-            color: #00b4db;
+            color: #667eea;
             margin-bottom: 15px;
             font-size: 1.5em;
         }
         
         .status {
             display: inline-block;
-            background: #00d26a;
+            background: #f093fb;
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
@@ -90,7 +90,7 @@
         }
         
         .mapping-item {
-            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 8px 15px;
             border-radius: 5px;
@@ -99,18 +99,18 @@
         
         .calculation {
             background: #0d1117;
-            color: #00ff88;
+            color: #f093fb;
             padding: 20px;
             border-radius: 8px;
             font-family: 'Courier New', monospace;
             font-size: 1.1em;
             white-space: pre;
             overflow-x: auto;
-            border: 2px solid #00d26a;
+            border: 2px solid #764ba2;
         }
         
         .result {
-            background: linear-gradient(135deg, #00d26a 0%, #00b4db 100%);
+            background: linear-gradient(135deg, #f093fb 0%, #667eea 100%);
             color: white;
             padding: 15px;
             border-radius: 8px;
@@ -120,7 +120,7 @@
         }
         
         .summary {
-            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 25px;
             border-radius: 10px;
@@ -138,7 +138,7 @@
         }
         
         .summary th {
-            background: #0083b0;
+            background: #764ba2;
             color: white;
             padding: 12px;
         }
@@ -163,18 +163,18 @@
             text-align: center;
             border-radius: 10px;
             margin-bottom: 20px;
-            border: 2px solid #00b4db;
+            border: 2px solid #667eea;
         }
         
         .download-links a {
-            color: #00ff88;
+            color: #f093fb;
             text-decoration: none;
             margin: 0 10px;
             font-weight: bold;
         }
         
         .download-links a:hover {
-            color: #00b4db;
+            color: #667eea;
             text-decoration: underline;
         }
         

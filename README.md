@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             padding: 20px;
             min-height: 100vh;
             color: #eee;
@@ -22,14 +22,14 @@
         .container {
             max-width: 900px;
             margin: 0 auto;
-            background: #0f3460;
+            background: #1a253a;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.5);
             overflow: hidden;
         }
         
         .header {
-            background: linear-gradient(135deg, #e94560 0%, #c0392b 100%);
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
             color: white;
             padding: 30px;
             text-align: center;
@@ -50,8 +50,8 @@
         }
         
         .puzzle {
-            background: #1a1a2e;
-            border-left: 5px solid #e94560;
+            background: #24344d;
+            border-left: 5px solid #00b4db;
             border-radius: 10px;
             padding: 25px;
             margin-bottom: 25px;
@@ -60,18 +60,18 @@
         
         .puzzle:hover {
             transform: translateX(5px);
-            box-shadow: 0 5px 20px rgba(233, 69, 96, 0.3);
+            box-shadow: 0 5px 20px rgba(0, 180, 219, 0.3);
         }
         
         .puzzle h2 {
-            color: #e94560;
+            color: #00b4db;
             margin-bottom: 15px;
             font-size: 1.5em;
         }
         
         .status {
             display: inline-block;
-            background: #00b894;
+            background: #00d26a;
             color: white;
             padding: 5px 15px;
             border-radius: 20px;
@@ -80,7 +80,7 @@
         }
         
         .mapping {
-            background: #16213e;
+            background: #1a253a;
             padding: 15px;
             border-radius: 8px;
             margin: 15px 0;
@@ -90,7 +90,7 @@
         }
         
         .mapping-item {
-            background: #e94560;
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
             color: white;
             padding: 8px 15px;
             border-radius: 5px;
@@ -98,7 +98,7 @@
         }
         
         .calculation {
-            background: #000000;
+            background: #0d1117;
             color: #00ff88;
             padding: 20px;
             border-radius: 8px;
@@ -106,11 +106,11 @@
             font-size: 1.1em;
             white-space: pre;
             overflow-x: auto;
-            border: 2px solid #00b894;
+            border: 2px solid #00d26a;
         }
         
         .result {
-            background: linear-gradient(135deg, #00b894 0%, #00cec9 100%);
+            background: linear-gradient(135deg, #00d26a 0%, #00b4db 100%);
             color: white;
             padding: 15px;
             border-radius: 8px;
@@ -120,7 +120,7 @@
         }
         
         .summary {
-            background: linear-gradient(135deg, #e94560 0%, #c0392b 100%);
+            background: linear-gradient(135deg, #00b4db 0%, #0083b0 100%);
             color: white;
             padding: 25px;
             border-radius: 10px;
@@ -132,13 +132,13 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 15px;
-            background: #1a1a2e;
+            background: #1a253a;
             border-radius: 8px;
             overflow: hidden;
         }
         
         .summary th {
-            background: #e94560;
+            background: #0083b0;
             color: white;
             padding: 12px;
         }
@@ -146,7 +146,7 @@
         .summary td {
             padding: 12px;
             color: #eee;
-            border-bottom: 1px solid #16213e;
+            border-bottom: 1px solid #24344d;
         }
         
         .summary tr:last-child td {
@@ -154,16 +154,16 @@
         }
         
         .summary tr:hover {
-            background: #16213e;
+            background: #24344d;
         }
         
         .download-links {
-            background: #16213e;
+            background: #24344d;
             padding: 20px;
             text-align: center;
             border-radius: 10px;
             margin-bottom: 20px;
-            border: 2px solid #e94560;
+            border: 2px solid #00b4db;
         }
         
         .download-links a {
@@ -174,7 +174,7 @@
         }
         
         .download-links a:hover {
-            color: #e94560;
+            color: #00b4db;
             text-decoration: underline;
         }
         

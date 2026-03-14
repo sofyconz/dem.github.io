@@ -8,20 +8,24 @@
             font-family: Arial, sans-serif;
             line-height: 1.6;
             margin: 20px;
+            background-color: #f0f4f8;
         }
         a {
-            color: #007BFF;
+            color: #2563eb;
             text-decoration: none;
+            font-weight: 500;
         }
         a:hover {
+            color: #7c3aed;
             text-decoration: underline;
         }
         .log-entry {
             margin-top: 20px;
-            padding: 10px;
-            background-color: #f4f4f4;
-            border-left: 4px solid #007BFF;
+            padding: 15px;
+            background-color: #e0e7ff;
+            border-left: 4px solid #7c3aed;
             display: inline-block;
+            border-radius: 0 8px 8px 0;
         }
     </style>
 </head>

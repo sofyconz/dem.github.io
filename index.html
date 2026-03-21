@@ -1,21 +1,121 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-<title>Моя презентация</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя презентация и результаты</title>
+    <style>
+        /* Основные стили страницы */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+
+        /* Карточка-контейнер */
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        /* Стили для ссылок-кнопок */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            margin-bottom: 15px;
+            background-color: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-sizing: border-box; /* Чтобы padding не ломал ширину */
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+
+        .btn-secondary {
+            background-color: #95a5a6;
+        }
+        
+        .btn-secondary:hover {
+            background-color: #7f8c8d;
+            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.4);
+        }
+
+        /* Блок с результатами */
+        .result-box {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+        }
+
+        .date {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #27ae60;
+        }
+        
+        .label {
+            font-size: 0.9em;
+            color: #555;
+        }
+    </style>
 </head>
 <body>
 
-<p>
-   Нажмите, чтобы скачать или открыть презентацию:
-   <a href="СетьВводный.pptx">Презентация в формате  .pptx</a>
-   Нажмите, чтобы скачать или открыть index.html6:
-   <a href="index.html">Файл проверки работы с кириллицей .html</a>
+<div class="container">
+    <h1>Материалы курса</h1>
+    
+    <p>Выберите файл для скачивания или просмотра:</p>
 
+    <!-- Кнопка 1 -->
+    <a href="СетьВводный.pptx" class="btn">
+        📄 Презентация (.pptx)
+    </a>
 
+    <!-- Кнопка 2 -->
+    <a href="index.html" class="btn btn-secondary">
+        🌐 Проверка кириллицы (.html)
+    </a>
 
-<p>
-21 марта 2026
-Ответ: 0.69
-<p>
+    <!-- Блок с ответом -->
+    <div class="result-box">
+        <div class="date">21 марта 2026</div>
+        <div class="label">Ответ:</div>
+        <div class="answer">0.69</div>
+    </div>
+</div>
+
 </body>
 </html>

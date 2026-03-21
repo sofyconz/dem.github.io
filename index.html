@@ -3,117 +3,196 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя презентация и результаты</title>
+    <title>Отчет по заданию №2 | Страхование КАСКО</title>
     <style>
-        /* Основные стили страницы */
+        /* Основные настройки страницы */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            background-color: #f4f7f6;
             color: #333;
-        }
-
-        /* Карточка-контейнер */
-        .container {
-            background-color: white;
+            margin: 0;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            text-align: center;
-            max-width: 500px;
-            width: 90%;
+            line-height: 1.6;
         }
 
+        /* Контейнер для центрирования контента */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Заголовки */
         h1 {
             color: #2c3e50;
+            text-align: center;
             margin-bottom: 30px;
             font-size: 24px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
         }
 
-        /* Стили для ссылок-кнопок */
+        h2 {
+            color: #34495e;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        /* Секция с кнопками */
+        .actions {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
         .btn {
-            display: block;
-            width: 100%;
-            padding: 15px 0;
-            margin-bottom: 15px;
+            display: inline-block;
+            padding: 12px 24px;
             background-color: #3498db;
             color: white;
             text-decoration: none;
-            border-radius: 8px;
+            border-radius: 6px;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-sizing: border-box; /* Чтобы padding не ломал ширину */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         .btn:hover {
             background-color: #2980b9;
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
         }
 
         .btn-secondary {
-            background-color: #95a5a6;
+            background-color: #27ae60;
         }
-        
         .btn-secondary:hover {
-            background-color: #7f8c8d;
-            box-shadow: 0 5px 15px rgba(149, 165, 166, 0.4);
+            background-color: #219150;
         }
 
         /* Блок с результатами */
-        .result-box {
-            margin-top: 30px;
+        .result-card {
+            background-color: #ecf0f1;
+            border-left: 5px solid #e74c3c;
             padding: 20px;
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: 8px;
+            border-radius: 4px;
+            margin-bottom: 20px;
         }
 
         .date {
-            font-size: 0.9em;
             color: #7f8c8d;
+            font-style: italic;
+            font-size: 0.9em;
+            text-align: right;
             margin-bottom: 10px;
         }
 
-        .answer {
-            font-size: 1.5em;
+        .accuracy-box {
+            font-size: 1.2em;
             font-weight: bold;
-            color: #27ae60;
+            color: #2c3e50;
         }
-        
-        .label {
+
+        .highlight {
+            color: #e74c3c;
+            font-size: 1.4em;
+        }
+
+        /* Таблица данных */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
             font-size: 0.9em;
-            color: #555;
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #34495e;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* Блок распределения */
+        .distribution {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #2c3e50;
+            color: #2ecc71;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Материалы курса</h1>
+    <h1>Задание №2: Прогнозирование страхования КАСКО</h1>
+
+    <!-- Секция скачивания файлов -->
+    <div class="actions">
+        <a href="СетьВводный.pptx" class="btn" download>📥 Скачать презентацию (.pptx)</a>
+        <a href="index.html" class="btn btn-secondary" target="_blank">🌐 Проверка кириллицы (.html)</a>
+    </div>
+
+    <!-- Дата и основной ответ -->
+    <div class="date">21 марта 2026</div>
     
-    <p>Выберите файл для скачивания или просмотра:</p>
+    <div class="result-card">
+        <div class="accuracy-box">
+            Точность модели (Accuracy): <span class="highlight">0,69 (69%)</span>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9em;">
+            Модель обучена на синтетических данных с учетом возраста, стажа вождения и истории ДТП.
+        </p>
+    </div>
 
-    <!-- Кнопка 1 -->
-    <a href="СетьВводный.pptx" class="btn">
-        📄 Презентация (.pptx)
-    </a>
+    <!-- Таблица первых строк датасета -->
+    <h2>Первые строки сгенерированного датасета</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Возраст (age)</th>
+                <th>Стаж (exp)</th>
+                <th>ДТП (acc)</th>
+                <th>Решение (insured)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>0</td><td>56</td><td>14</td><td>1</td><td>✅ Одобрено</td></tr>
+            <tr><td>1</td><td>69</td><td>26</td><td>1</td><td>✅ Одобрено</td></tr>
+            <tr><td>2</td><td>46</td><td>28</td><td>2</td><td>✅ Одобрено</td></tr>
+            <tr><td>3</td><td>32</td><td>14</td><td>1</td><td>✅ Одобрено</td></tr>
+            <tr><td>4</td><td>60</td><td>32</td><td>1</td><td>✅ Одобрено</td></tr>
+        </tbody>
+    </table>
 
-    <!-- Кнопка 2 -->
-    <a href="index.html" class="btn btn-secondary">
-        🌐 Проверка кириллицы (.html)
-    </a>
-
-    <!-- Блок с ответом -->
-    <div class="result-box">
-        <div class="date">21 марта 2026</div>
-        <div class="label">Ответ:</div>
-        <div class="answer">0.69</div>
+    <!-- Распределение классов -->
+    <h2>Распределение целевой переменной</h2>
+    <div class="distribution">
+insured<br>
+1 &nbsp;&nbsp;&nbsp; 849 (Одобрено)<br>
+0 &nbsp;&nbsp;&nbsp; 151 (Отказ)<br>
+Name: count, dtype: int64
     </div>
 </div>
 

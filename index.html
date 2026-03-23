@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отчет по заданию №2 | Страхование КАСКО</title>
+    <title>Отчет по проекту: Нейросеть</title>
     <style>
         /* Основные настройки страницы */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: #fdfbf7; /* Очень светлый кремовый фон */
+            color: #5d5d5d; /* Мягкий темно-серый текст */
             margin: 0;
-            padding: 40px;
+            padding: 40px 20px;
             line-height: 1.6;
         }
 
@@ -21,178 +21,157 @@
             margin: 0 auto;
             background-color: #ffffff;
             padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(230, 220, 210, 0.5); /* Мягкая тень */
         }
 
         /* Заголовки */
         h1 {
-            color: #2c3e50;
+            color: #8da399; /* Пастельный шалфейный зеленый */
             text-align: center;
+            font-weight: 300;
             margin-bottom: 30px;
-            font-size: 24px;
-            border-bottom: 2px solid #3498db;
-            padding-bottom: 10px;
+            letter-spacing: 1px;
         }
 
         h2 {
-            color: #34495e;
-            font-size: 18px;
+            color: #a89f91; /* Пастельный тауп */
+            font-size: 1.2rem;
+            border-bottom: 2px solid #f0ebe5;
+            padding-bottom: 10px;
             margin-top: 30px;
         }
 
-        /* Секция с кнопками */
-        .actions {
-            display: flex;
-            gap: 15px;
-            justify-content: center;
+        /* Блок с ссылками (карточки) */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
             margin-bottom: 40px;
-            flex-wrap: wrap;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 24px;
-            background-color: #3498db;
-            color: white;
+        .card {
+            background-color: #f4f1ea; /* Пастельный бежевый */
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
-            border-radius: 6px;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            color: #6b705c;
+            border: 1px solid #e6e2dd;
+            display: block;
         }
 
-        .btn:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(160, 150, 140, 0.2);
+            background-color: #ebe7df;
         }
 
-        .btn-secondary {
-            background-color: #27ae60;
-        }
-        .btn-secondary:hover {
-            background-color: #219150;
+        .card-title {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.1rem;
         }
 
-        /* Блок с результатами */
-        .result-card {
-            background-color: #ecf0f1;
-            border-left: 5px solid #e74c3c;
+        .card-desc {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Блок с логом (консоль) */
+        .console-output {
+            background-color: #2b2d31; /* Темный, но не черный фон для контраста текста */
+            color: #a8ffdb; /* Мягкий мятный цвет текста */
             padding: 20px;
-            border-radius: 4px;
-            margin-bottom: 20px;
-        }
-
-        .date {
-            color: #7f8c8d;
-            font-style: italic;
-            font-size: 0.9em;
-            text-align: right;
-            margin-bottom: 10px;
-        }
-
-        .accuracy-box {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #2c3e50;
-        }
-
-        .highlight {
-            color: #e74c3c;
-            font-size: 1.4em;
-        }
-
-        /* Таблица данных */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 0.9em;
-            background-color: #fff;
-            border: 1px solid #ddd;
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #34495e;
-            color: white;
-        }
-
-        tr:nth-child(even) {
-            background-color: #f9f9f9;
-        }
-
-        tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        /* Блок распределения */
-        .distribution {
-            font-family: 'Courier New', Courier, monospace;
-            background-color: #2c3e50;
-            color: #2ecc71;
-            padding: 15px;
-            border-radius: 6px;
+            border-radius: 12px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.85rem;
             overflow-x: auto;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.2);
+            border-left: 5px solid #8da399;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background-color: #e0dcd5;
+            color: #6b705c;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <h1>Задание №2: Прогнозирование страхования КАСКО</h1>
-
-    <!-- Секция скачивания файлов -->
-    <div class="actions">
-        <a href="СетьВводный.pptx" class="btn" download>📥 Скачать презентацию (.pptx)</a>
-        <a href="index.html" class="btn btn-secondary" target="_blank">🌐 Проверка кириллицы (.html)</a>
-    </div>
-
-    <!-- Дата и основной ответ -->
-    <div class="date">21 марта 2026</div>
+    <h1>Результаты обучения нейросети</h1>
     
-    <div class="result-card">
-        <div class="accuracy-box">
-            Точность модели (Accuracy): <span class="highlight">0,69 (69%)</span>
-        </div>
-        <p style="margin-top: 10px; font-size: 0.9em;">
-            Модель обучена на синтетических данных с учетом возраста, стажа вождения и истории ДТП.
-        </p>
+    <div style="text-align: center;">
+        <span class="date-badge">📅 23 марта 2026</span>
     </div>
 
-    <!-- Таблица первых строк датасета -->
-    <h2>Первые строки сгенерированного датасета</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Возраст (age)</th>
-                <th>Стаж (exp)</th>
-                <th>ДТП (acc)</th>
-                <th>Решение (insured)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>0</td><td>56</td><td>14</td><td>1</td><td>✅ Одобрено</td></tr>
-            <tr><td>1</td><td>69</td><td>26</td><td>1</td><td>✅ Одобрено</td></tr>
-            <tr><td>2</td><td>46</td><td>28</td><td>2</td><td>✅ Одобрено</td></tr>
-            <tr><td>3</td><td>32</td><td>14</td><td>1</td><td>✅ Одобрено</td></tr>
-            <tr><td>4</td><td>60</td><td>32</td><td>1</td><td>✅ Одобрено</td></tr>
-        </tbody>
-    </table>
+    <!-- Секция файлов -->
+    <h2>Материалы проекта</h2>
+    <div class="links-grid">
+        <a href="СетьВводный.pptx" class="card">
+            <span class="card-title">📊 Презентация</span>
+            <span class="card-desc">Скачать файл .pptx</span>
+        </a>
+        <a href="index.html" class="card">
+            <span class="card-title">💻 Тест кириллицы</span>
+            <span class="card-desc">Открыть файл проверки .html</span>
+        </a>
+    </div>
 
-    <!-- Распределение классов -->
-    <h2>Распределение целевой переменной</h2>
-    <div class="distribution">
-insured<br>
-1 &nbsp;&nbsp;&nbsp; 849 (Одобрено)<br>
-0 &nbsp;&nbsp;&nbsp; 151 (Отказ)<br>
-Name: count, dtype: int64
+    <!-- Секция лога -->
+    <h2>Лог обучения (4 признака)</h2>
+    <p style="font-size: 0.9rem; color: #888; margin-bottom: 10px;">
+        Признаки: <code>gender, lunch, test preparation course, reading score</code>
+    </p>
+    
+    <div class="console-output">
+Начало обучения...
+Эпоха    0 | Ошибка (MSE): nan
+Эпоха  100 | Ошибка (MSE): nan
+Эпоха  200 | Ошибка (MSE): nan
+Эпоха  300 | Ошибка (MSE): nan
+Эпоха  400 | Ошибка (MSE): nan
+Эпоха  500 | Ошибка (MSE): nan
+Эпоха  600 | Ошибка (MSE): nan
+Эпоха  700 | Ошибка (MSE): nan
+Эпоха  800 | Ошибка (MSE): nan
+Эпоха  900 | Ошибка (MSE): nan
+
+✅ Обучение завершено!
+
+📊 Итоговые результаты:
+Ошибка на обучении (MSE): nan
+Ошибка на тесте (MSE):    nan
+
+🔍 Примеры прогнозов (реальные оценки):
+Факт: 91.0 | Прогноз: nan
+Факт: 53.0 | Прогноз: nan
+Факт: 80.0 | Прогноз: nan
+Факт: 74.0 | Прогноз: nan
+Факт: 84.0 | Прогноз: nan
+    </div>
+    
+    <div style="margin-top: 30px; text-align: center; font-size: 0.8rem; color: #aaa;">
+        Примечание: Значения "nan" указывают на проблему с данными или делением на ноль в коде.
     </div>
 </div>
 

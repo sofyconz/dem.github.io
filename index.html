@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Отчет по проекту: Нейросеть</title>
+    <title>🏥 Система Приёмного Покоя | Презентация</title>
     <style>
         * {
             margin: 0;
@@ -13,193 +13,311 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
-            color: #4a4a4a;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 40px 20px;
-            line-height: 1.8;
+            color: #333;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 900px;
             margin: 0 auto;
-            background: #ffffff;
-            padding: 50px 40px;
+            background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
         }
 
-        h1 {
-            color: #6b7f9c;
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
             text-align: center;
-            font-weight: 400;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
             margin-bottom: 10px;
-            font-size: 2rem;
-            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .subtitle {
-            text-align: center;
-            color: #9aa5b1;
-            font-size: 0.95rem;
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
             margin-bottom: 40px;
         }
 
-        .date-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #e8f4f8 0%, #f0e8f8 100%);
-            color: #6b7f9c;
-            padding: 8px 25px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            margin-bottom: 35px;
-            font-weight: 500;
-            text-align: center;
-            width: 100%;
-        }
-
         .section-title {
-            color: #7d8fa3;
-            font-size: 1.1rem;
-            font-weight: 500;
-            margin: 35px 0 20px 0;
+            font-size: 1.5em;
+            color: #667eea;
+            margin-bottom: 20px;
             padding-bottom: 10px;
-            border-bottom: 2px solid #f0f4f8;
-        }
-
-        .links-container {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .link-card {
-            background: linear-gradient(135deg, #f8fafc 0%, #f0f4f8 100%);
-            padding: 20px 25px;
-            border-radius: 12px;
-            text-decoration: none;
-            color: #5a6c7d;
-            transition: all 0.3s ease;
-            border: 1px solid #e8eef4;
+            border-bottom: 3px solid #667eea;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
         }
 
-        .link-card:hover {
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(107, 127, 156, 0.15);
-            background: linear-gradient(135deg, #f0f4f8 0%, #e8eef4 100%);
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        .link-icon {
-            font-size: 1.5rem;
-        }
-
-        .link-text {
-            flex: 1;
-        }
-
-        .link-title {
-            font-weight: 600;
-            display: block;
-            margin-bottom: 3px;
-        }
-
-        .link-desc {
-            font-size: 0.85rem;
-            color: #8895a3;
-        }
-
-        .results-box {
-            background: #f8f9fb;
-            border-radius: 12px;
+        .card {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            border-radius: 15px;
             padding: 25px;
-            border-left: 4px solid #6b7f9c;
-            font-family: 'Consolas', 'Monaco', monospace;
-            font-size: 0.85rem;
-            color: #5a6c7d;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-left: 5px solid #667eea;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .card p {
+            color: #555;
             line-height: 1.6;
         }
 
-        .results-box .highlight {
-            color: #6b7f9c;
-            font-weight: 600;
+        .download-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
         }
 
-        .results-box .warning {
-            color: #b8a596;
-            font-style: italic;
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
         }
 
-        .footer-note {
+        .tree-container {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 15px;
+            padding: 30px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            overflow-x: auto;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .tree-line {
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .tree-key {
+            color: #9cdcfe;
+        }
+
+        .tree-value {
+            color: #ce9178;
+        }
+
+        .tree-symbol {
+            color: #d4d4d4;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
+            border-left: 5px solid #ff9933;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .info-box strong {
+            color: #e67e00;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .stat-item {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
             text-align: center;
-            margin-top: 40px;
-            padding-top: 25px;
-            border-top: 1px solid #e8eef4;
-            color: #9aa5b1;
-            font-size: 0.85rem;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+
+        .footer {
+            background: #f5f7fa;
+            padding: 20px 40px;
+            text-align: center;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            margin-left: 10px;
         }
 
         @media (max-width: 600px) {
-            .container {
-                padding: 30px 25px;
+            .header h1 {
+                font-size: 1.8em;
             }
-            h1 {
-                font-size: 1.6rem;
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .cards {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <div class="container">
+        <!-- Заголовок -->
+        <div class="header">
+            <h1>🏥 Система Приёмного Покоя</h1>
+            <p>Многомерная структура данных MUMPS</p>
+        </div>
 
-<div class="container">
-    <h1>🎓 Отчёт по проекту</h1>
-    <p class="subtitle">Нейронная сеть для прогнозирования оценок</p>
-    
-    <div class="date-badge">
-        📅 23 марта 2026
-    </div>
+        <!-- Основной контент -->
+        <div class="content">
+            <!-- Секция с файлами -->
+            <div class="section">
+                <h2 class="section-title">
+                    📁 Доступные файлы
+                </h2>
+                
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Презентация</h3>
+                        <p>Вводная презентация по системе в формате PowerPoint</p>
+                        <a href="СетьВводный.pptx" class="download-btn" download>
+                            ⬇️ Скачать .pptx
+                        </a>
+                    </div>
 
-    <h2 class="section-title">📁 Файлы проекта</h2>
-    <div class="links-container">
-        <a href="СетьВводный.pptx" class="link-card">
-            <span class="link-icon">📊</span>
-            <div class="link-text">
-                <span class="link-title">Презентация</span>
-                <span class="link-desc">Формат .pptx</span>
+                    <div class="card">
+                        <div class="card-icon">🌐</div>
+                        <h3>Проверка кириллицы</h3>
+                        <p>Тестовый HTML файл для проверки отображения текста</p>
+                        <a href="index.html" class="download-btn" download>
+                            ⬇️ Скачать .html
+                        </a>
+                    </div>
+                </div>
             </div>
-        </a>
-        
-        <a href="index.html" class="link-card">
-            <span class="link-icon">🌐</span>
-            <div class="link-text">
-                <span class="link-title">Тест кириллицы</span>
-                <span class="link-desc">Файл проверки .html</span>
+
+            <!-- Информационный блок -->
+            <div class="section">
+                <div class="info-box">
+                    <strong>📅 Дата:</strong> 1 апреля 2026<br>
+                    <strong>📝 Задание:</strong> №4<br>
+                    <strong>🗂️ Структура:</strong> Многомерный массив ^a
+                </div>
             </div>
-        </a>
-    </div>
 
-    <h2 class="section-title">📈 Результаты обучения</h2>
-    <div class="results-box">
-        <span class="highlight">Итоговые результаты (с добавлением 'reading score'):</span><br>
-        <br>
-        Ошибка на обучении (MSE): <span class="warning">nan</span><br>
-        Ошибка на тесте (MSE): <span class="warning">nan</span><br>
-        <br>
-        🔍 Примеры прогнозов (реальные оценки):<br>
-        <br>
-        Факт: 91.0 | Прогноз: <span class="warning">nan</span><br>
-        Факт: 53.0 | Прогноз: <span class="warning">nan</span><br>
-        Факт: 80.0 | Прогноз: <span class="warning">nan</span><br>
-        Факт: 74.0 | Прогноз: <span class="warning">nan</span><br>
-        Факт: 84.0 | Прогноз: <span class="warning">nan</span>
-    </div>
+            <!-- Визуализация дерева -->
+            <div class="section">
+                <h2 class="section-title">
+                    🌳 Структура данных
+                </h2>
+                
+                <div class="tree-container">
+                    <div class="tree-line"><span class="tree-symbol">^a</span></div>
+                    <div class="tree-line"><span class="tree-symbol">├──</span> <span class="tree-key">+7926X</span></div>
+                    <div class="tree-line"><span class="tree-symbol">│   ├──</span> <span class="tree-key">city</span> = <span class="tree-value">"Moscow"</span></div>
+                    <div class="tree-line"><span class="tree-symbol">│   │   └──</span> <span class="tree-key">street</span> = <span class="tree-value">"Red Square"</span></div>
+                    <div class="tree-line"><span class="tree-symbol">│   └──</span> <span class="tree-key">age</span> = <span class="tree-value">25</span></div>
+                    <div class="tree-line"><span class="tree-symbol">├──</span> <span class="tree-key">+7916Y</span></div>
+                    <div class="tree-line"><span class="tree-symbol">│   ├──</span> <span class="tree-key">city</span> = <span class="tree-value">"London"</span></div>
+                    <div class="tree-line"><span class="tree-symbol">│   │   └──</span> <span class="tree-key">street</span> = <span class="tree-value">"Baker Street"</span></div>
+                    <div class="tree-line"><span class="tree-symbol">│   └──</span> <span class="tree-key">age</span> = <span class="tree-value">36</span></div>
+                    <div class="tree-line"><span class="tree-symbol">└──</span> <span class="tree-key">...</span> <span class="badge">10 пациентов</span></div>
+                </div>
+            </div>
 
-    <div class="footer-note">
-        ⚠️ Значения "nan" требуют проверки данных и кода
-    </div>
-</div>
+            <!-- Статистика -->
+            <div class="section">
+                <h2 class="section-title">
+                    📊 Статистика
+                </h2>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">10</div>
+                        <div class="stat-label">Пациентов</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Поля на пациента</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3</div>
+                        <div class="stat-label">Уровня вложенности</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">∞</div>
+                        <div class="stat-label">Масштабируемость</div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Подвал -->
+        <div class="footer">
+            <p>© 2026 Система управления приёмным покоем | Задание №4</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">
+                🏗️ Структура: MUMPS Global ^a | 💾 Формат: Иерархическое дерево
+            </p>
+        </div>
+    </div>
 </body>
 </html>

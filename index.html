@@ -1,324 +1,158 @@
+Вот исправленный и красиво оформленный HTML-код.
+
+**Что было сделано:**
+1.  **Исправлены ошибки в коде:** В оригинале теги `<a>` во второй части были не закрыты и не имели текста ссылки (были просто «битыми» ссылками). Я добавил названия файлов как текст ссылок.
+2.  **Добавлен CSS (стили):** Использованы светлые, пастельные тона (белый фон, светло-серые блоки, мягкие тени).
+3.  **Структура:** Контент разбит на логические карточки для удобства восприятия.
+4.  **Адаптивность:** Страница будет хорошо смотреться и на компьютере, и на телефоне.
+
+Сохраните этот код как `.html` файл (например, `index.html`) в той же папке, где лежат ваши файлы.
+
+```html
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🏥 Система Приёмного Покоя | Презентация</title>
+    <title>Моя презентация и файлы</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* Основные настройки страницы */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            padding: 40px 20px;
+            background-color: #f4f7f6; /* Светлый серо-голубой фон */
             color: #333;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-        }
-
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 40px;
-            text-align: center;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .header p {
-            font-size: 1.2em;
-            opacity: 0.9;
-        }
-
-        .content {
-            padding: 40px;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section-title {
-            font-size: 1.5em;
-            color: #667eea;
-            margin-bottom: 20px;
-            padding-bottom: 10px;
-            border-bottom: 3px solid #667eea;
+            margin: 0;
+            padding: 0;
             display: flex;
+            justify-content: center;
             align-items: center;
-            gap: 10px;
+            min-height: 100vh;
         }
 
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
+        /* Контейнер для контента */
+        .container {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Мягкая тень */
+            margin: 20px;
+        }
+
+        /* Заголовки */
+        h1 {
+            text-align: center;
+            color: #2c3e50;
             margin-bottom: 30px;
+            font-weight: 600;
         }
 
-        .card {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            border-radius: 15px;
-            padding: 25px;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-left: 5px solid #667eea;
+        h2 {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 10px;
+            margin-top: 30px;
+            margin-bottom: 20px;
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        /* Списки ссылок */
+        .file-list {
+            list-style: none;
+            padding: 0;
         }
 
-        .card-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
+        .file-list li {
+            margin-bottom: 12px;
         }
 
-        .card h3 {
-            color: #667eea;
-            margin-bottom: 10px;
-            font-size: 1.2em;
-        }
-
-        .card p {
-            color: #555;
-            line-height: 1.6;
-        }
-
-        .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 12px 25px;
-            border-radius: 25px;
+        /* Стили ссылок */
+        a {
             text-decoration: none;
-            font-weight: bold;
+            color: #2980b9; /* Приятный синий цвет */
+            background-color: #ebf5fb;
+            padding: 12px 20px;
+            border-radius: 8px;
+            display: block;
             transition: all 0.3s ease;
-            margin-top: 15px;
-            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+            border: 1px solid #d6eaf8;
+            font-weight: 500;
         }
 
-        .download-btn:hover {
+        /* Эффект при наведении */
+        a:hover {
+            background-color: #2980b9;
+            color: #ffffff;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+            box-shadow: 0 4px 6px rgba(41, 128, 185, 0.2);
         }
 
-        .tree-container {
-            background: #1e1e1e;
-            color: #d4d4d4;
-            border-radius: 15px;
-            padding: 30px;
-            font-family: 'Consolas', 'Monaco', monospace;
-            overflow-x: auto;
-            box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-        }
-
-        .tree-line {
-            line-height: 1.8;
-            font-size: 14px;
-        }
-
-        .tree-key {
-            color: #9cdcfe;
-        }
-
-        .tree-value {
-            color: #ce9178;
-        }
-
-        .tree-symbol {
-            color: #d4d4d4;
-        }
-
-        .info-box {
-            background: linear-gradient(135deg, #fff5e6 0%, #ffe6cc 100%);
-            border-left: 5px solid #ff9933;
-            border-radius: 10px;
-            padding: 20px;
-            margin: 20px 0;
-        }
-
-        .info-box strong {
-            color: #e67e00;
-        }
-
-        .stats {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .stat-item {
-            background: white;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #667eea;
-        }
-
-        .stat-label {
-            color: #666;
+        /* Дата */
+        .date {
+            text-align: right;
             font-size: 0.9em;
-            margin-top: 5px;
+            color: #95a5a6;
+            margin-top: 40px;
+            font-style: italic;
         }
-
-        .footer {
-            background: #f5f7fa;
-            padding: 20px 40px;
-            text-align: center;
-            color: #666;
-            border-top: 1px solid #e0e0e0;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #667eea;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin-left: 10px;
-        }
-
-        @media (max-width: 600px) {
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .content {
-                padding: 20px;
-            }
-            
-            .cards {
-                grid-template-columns: 1fr;
-            }
+        
+        /* Иконки (эмодзи) для красоты */
+        .icon {
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
+
     <div class="container">
-        <!-- Заголовок -->
-        <div class="header">
-            <h1>🏥 Система Приёмного Покоя</h1>
-            <p>Многомерная структура данных MUMPS</p>
-        </div>
+        <h1>Файлы проекта</h1>
 
-        <!-- Основной контент -->
-        <div class="content">
-            <!-- Секция с файлами -->
-            <div class="section">
-                <h2 class="section-title">
-                    📁 Доступные файлы
-                </h2>
-                
-                <div class="cards">
-                    <div class="card">
-                        <div class="card-icon">📊</div>
-                        <h3>Презентация</h3>
-                        <p>Вводная презентация по системе в формате PowerPoint</p>
-                        <a href="СетьВводный.pptx" class="download-btn" download>
-                            ⬇️ Скачать .pptx
-                        </a>
-                    </div>
+        <!-- Блок презентации -->
+        <h2>📂 Презентации и проверка</h2>
+        <ul class="file-list">
+            <li>
+                <a href="СетьВводный.pptx">
+                    <span class="icon">📊</span>Презентация (.pptx)
+                </a>
+            </li>
+            <li>
+                <a href="index.html">
+                    <span class="icon">🌐</span>Проверка кириллицы (.html)
+                </a>
+            </li>
+        </ul>
 
-                    <div class="card">
-                        <div class="card-icon">🌐</div>
-                        <h3>Проверка кириллицы</h3>
-                        <p>Тестовый HTML файл для проверки отображения текста</p>
-                        <a href="index.html" class="download-btn" download>
-                            ⬇️ Скачать .html
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <!-- Блок таблиц -->
+        <h2>📅 Таблицы (4 Мая 2026)</h2>
+        <ul class="file-list">
+            <li>
+                <a href="Новая таблица 1.xlsx">
+                    <span class="icon">📗</span>Новая таблица 1 (.xlsx)
+                </a>
+            </li>
+            <li>
+                <a href="Таблица2.ods">
+                    <span class="icon">📙</span>Таблица 2 (.ods)
+                </a>
+            </li>
+            <li>
+                <a href="таблица 3 задание.xlsx">
+                    <span class="icon">📘</span>Таблица 3: Задание (.xlsx)
+                </a>
+            </li>
+            <li>
+                <a href="Новая таблица 4.xlsx">
+                    <span class="icon">📕</span>Новая таблица 4 (.xlsx)
+                </a>
+            </li>
+        </ul>
 
-            <!-- Информационный блок -->
-            <div class="section">
-                <div class="info-box">
-                    <strong>📅 Дата:</strong> 1 апреля 2026<br>
-                    <strong>📝 Задание:</strong> №4<br>
-                    <strong>🗂️ Структура:</strong> Многомерный массив ^a
-                </div>
-            </div>
-
-            <!-- Визуализация дерева -->
-            <div class="section">
-                <h2 class="section-title">
-                    🌳 Структура данных
-                </h2>
-                
-                <div class="tree-container">
-                    <div class="tree-line"><span class="tree-symbol">^a</span></div>
-                    <div class="tree-line"><span class="tree-symbol">├──</span> <span class="tree-key">+7926X</span></div>
-                    <div class="tree-line"><span class="tree-symbol">│   ├──</span> <span class="tree-key">city</span> = <span class="tree-value">"Moscow"</span></div>
-                    <div class="tree-line"><span class="tree-symbol">│   │   └──</span> <span class="tree-key">street</span> = <span class="tree-value">"Red Square"</span></div>
-                    <div class="tree-line"><span class="tree-symbol">│   └──</span> <span class="tree-key">age</span> = <span class="tree-value">25</span></div>
-                    <div class="tree-line"><span class="tree-symbol">├──</span> <span class="tree-key">+7916Y</span></div>
-                    <div class="tree-line"><span class="tree-symbol">│   ├──</span> <span class="tree-key">city</span> = <span class="tree-value">"London"</span></div>
-                    <div class="tree-line"><span class="tree-symbol">│   │   └──</span> <span class="tree-key">street</span> = <span class="tree-value">"Baker Street"</span></div>
-                    <div class="tree-line"><span class="tree-symbol">│   └──</span> <span class="tree-key">age</span> = <span class="tree-value">36</span></div>
-                    <div class="tree-line"><span class="tree-symbol">└──</span> <span class="tree-key">...</span> <span class="badge">10 пациентов</span></div>
-                </div>
-            </div>
-
-            <!-- Статистика -->
-            <div class="section">
-                <h2 class="section-title">
-                    📊 Статистика
-                </h2>
-                
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-number">10</div>
-                        <div class="stat-label">Пациентов</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">4</div>
-                        <div class="stat-label">Поля на пациента</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3</div>
-                        <div class="stat-label">Уровня вложенности</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">∞</div>
-                        <div class="stat-label">Масштабируемость</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Подвал -->
-        <div class="footer">
-            <p>© 2026 Система управления приёмным покоем | Задание №4</p>
-            <p style="margin-top: 10px; font-size: 0.9em;">
-                🏗️ Структура: MUMPS Global ^a | 💾 Формат: Иерархическое дерево
-                file:///home/user/2025/203/стомотология.png
-            </p>
+        <div class="date">
+            Обновлено: 4 Мая 2026
         </div>
     </div>
+
 </body>
 </html>
+```

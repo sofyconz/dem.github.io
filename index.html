@@ -3,145 +3,496 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Моя презентация и файлы</title>
+    <title>Кроссворды - Медицинские темы</title>
     <style>
-        /* Основные настройки страницы */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6; /* Светлый серо-голубой фон */
-            color: #333;
+        * {
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
+            padding: 20px;
         }
 
-        /* Контейнер для контента */
         .container {
-            background-color: #ffffff;
-            width: 100%;
-            max-width: 600px;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Мягкая тень */
-            margin: 20px;
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 1200px;
+            margin: 20px auto;
         }
 
-        /* Заголовки */
         h1 {
             text-align: center;
-            color: #2c3e50;
+            color: #667eea;
             margin-bottom: 30px;
-            font-weight: 600;
+            font-size: 2.5em;
         }
 
-        h2 {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            border-bottom: 2px solid #ecf0f1;
-            padding-bottom: 10px;
-            margin-top: 30px;
-            margin-bottom: 20px;
+        /* Стили для меню выбора темы */
+        .theme-selector {
+            text-align: center;
+            margin-bottom: 30px;
         }
 
-        /* Списки ссылок */
-        .file-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .file-list li {
-            margin-bottom: 12px;
-        }
-
-        /* Стили ссылок */
-        a {
-            text-decoration: none;
-            color: #2980b9; /* Приятный синий цвет */
-            background-color: #ebf5fb;
+        .theme-selector select {
             padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid #667eea;
+            border-radius: 10px;
+            background: white;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .theme-selector select:hover {
+            border-color: #764ba2;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* Стили для сетки кроссворда */
+        .crossword-grid {
+            display: grid;
+            gap: 2px;
+            background-color: #333;
+            border: 5px solid #333;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cell {
+            width: 45px;
+            height: 45px;
+            background-color: #fff;
+            position: relative;
+        }
+
+        .cell input {
+            width: 100%;
+            height: 100%;
+            border: none;
+            text-align: center;
+            font-size: 22px;
+            font-weight: bold;
+            text-transform: uppercase;
+            outline: none;
+            background-color: transparent;
+            color: #333;
+            padding: 0;
+            margin: 0;
+            transition: background-color 0.2s;
+        }
+
+        .cell input:focus {
+            background-color: #e8f0fe;
+        }
+
+        .cell.black {
+            background-color: #333;
+        }
+
+        .cell-number {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            font-size: 11px;
+            color: #666;
+            font-weight: bold;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        /* Стили для списка вопросов */
+        .clues {
+            max-width: 400px;
+            min-width: 300px;
+        }
+
+        .clues h3 {
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            color: #667eea;
+            font-size: 1.3em;
+        }
+
+        .clue-item {
+            margin-bottom: 12px;
+            font-size: 15px;
+            line-height: 1.5;
+            padding: 8px;
             border-radius: 8px;
-            display: block;
-            transition: all 0.3s ease;
-            border: 1px solid #d6eaf8;
-            font-weight: 500;
+            transition: background-color 0.2s;
         }
 
-        /* Эффект при наведении */
-        a:hover {
-            background-color: #2980b9;
-            color: #ffffff;
+        .clue-item:hover {
+            background-color: #f5f5f5;
+        }
+
+        .clue-item span {
+            font-weight: bold;
+            color: #764ba2;
+            margin-right: 8px;
+        }
+
+        /* Кнопки и сообщения */
+        .controls {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        button {
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            transition: all 0.3s;
+            margin: 0 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 6px rgba(41, 128, 185, 0.2);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
         }
 
-        /* Дата */
-        .date {
-            text-align: right;
-            font-size: 0.9em;
-            color: #95a5a6;
-            margin-top: 40px;
-            font-style: italic;
+        button:active {
+            transform: translateY(0);
         }
-        
-        /* Иконки (эмодзи) для красоты */
-        .icon {
-            margin-right: 10px;
+
+        .btn-check {
+            background: linear-gradient(135deg, #27ae60, #229954);
+            color: white;
+        }
+
+        .btn-reset {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            color: white;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 20px;
+            min-height: 30px;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .correct {
+            color: #27ae60;
+            background-color: #d4edda;
+        }
+
+        .incorrect {
+            color: #e74c3c;
+            background-color: #f8d7da;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .crossword-grid {
+                grid-template-columns: repeat(10, 35px) !important;
+                grid-template-rows: repeat(10, 35px) !important;
+            }
+
+            .cell {
+                width: 35px;
+                height: 35px;
+            }
+
+            .cell input {
+                font-size: 18px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Файлы проекта</h1>
+        <h1>🏥 Медицинские кроссворды</h1>
 
-        <!-- Блок презентации -->
-        <h2>📂 Презентации и проверка</h2>
-        <ul class="file-list">
-            <li>
-                <a href="СетьВводный.pptx">
-                    <span class="icon">📊</span>Презентация (.pptx)
-                </a>
-            </li>
-            <li>
-                <a href="index.html">
-                    <span class="icon">🌐</span>Проверка кириллицы (.html)
-                </a>
-            </li>
-        </ul>
+        <!-- Выбор темы -->
+        <div class="theme-selector">
+            <select id="themeSelect" onchange="loadCrossword()">
+                <option value="anatomy">Анатомия</option>
+                <option value="cardiology">Кардиология</option>
+                <option value="neurology">Неврология</option>
+            </select>
+        </div>
 
-        <!-- Блок таблиц -->
-        <h2>📅 Таблицы (4 Мая 2026)</h2>
-        <ul class="file-list">
-            <li>
-                <a href="Новая таблица 1.xlsx">
-                    <span class="icon">📗</span>Новая таблица 1 (.xlsx)
-                </a>
-            </li>
-            <li>
-                <a href="Таблица2.ods">
-                    <span class="icon">📙</span>Таблица 2 (.ods)
-                </a>
-            </li>
-            <li>
-                <a href="таблица 3 задание.xlsx">
-                    <span class="icon">📘</span>Таблица 3: Задание (.xlsx)
-                </a>
-            </li>
-            <li>
-                <a href="Новая таблица 4.xlsx">
-                    <span class="icon">📕</span>Новая таблица 4 (.xlsx)
-                </a>
-            </li>
-        </ul>
+        <div class="content-wrapper">
+            <!-- Сетка кроссворда -->
+            <div class="crossword-grid" id="grid"></div>
 
-        <div class="date">
-            Обновлено: 4 Мая 2026
+            <!-- Вопросы -->
+            <div class="clues">
+                <h3>По горизонтали:</h3>
+                <div id="across-clues"></div>
+                
+                <h3>По вертикали:</h3>
+                <div id="down-clues"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn-check" onclick="checkAnswers()">✓ Проверить ответы</button>
+            <button class="btn-reset" onclick="resetGrid()">↺ Сбросить</button>
+            <div id="result"></div>
         </div>
     </div>
 
+    <script>
+        // Данные кроссвордов
+        const crosswords = {
+            anatomy: {
+                gridSize: 10,
+                words: [
+                    { word: "СКЕЛЕТ", dir: "across", x: 1, y: 1, clue: "Твердая основа тела человека" },
+                    { word: "КОСТЬ", dir: "down", x: 2, y: 1, clue: "Основная часть скелета" },
+                    { word: "МЫШЦА", dir: "down", x: 5, y: 1, clue: "Орган, обеспечивающий движение" },
+                    { word: "ПЕЧЕНЬ", dir: "across", x: 3, y: 3, clue: "Самая большая железа организма" },
+                    { word: "СЕРДЦЕ", dir: "across", x: 1, y: 5, clue: "Главный насос крови" },
+                    { word: "МОЗГ", dir: "down", x: 1, y: 5, clue: "Центр нервной системы" },
+                    { word: "РЕБРО", dir: "down", x: 4, y: 3, clue: "Кость грудной клетки" },
+                    { word: "ЖЕЛУДОК", dir: "down", x: 7, y: 2, clue: "Орган пищеварения" },
+                    { word: "АРТЕРИЯ", dir: "across", x: 3, y: 7, clue: "Сосуд, несущий кровь от сердца" },
+                    { word: "ЧЕРЕП", dir: "down", x: 9, y: 1, clue: "Костная коробка головы" }
+                ]
+            },
+            cardiology: {
+                gridSize: 10,
+                words: [
+                    { word: "СЕРДЦЕ", dir: "across", x: 1, y: 1, clue: "Мышечный орган, качающий кровь" },
+                    { word: "КРОВЬ", dir: "down", x: 3, y: 1, clue: "Жидкость, циркулирующая в сосудах" },
+                    { word: "ВЕНА", dir: "down", x: 6, y: 2, clue: "Сосуд, несущий кровь к сердцу" },
+                    { word: "ПУЛЬС", dir: "across", x: 2, y: 4, clue: "Ритмичные колебания стенок артерий" },
+                    { word: "КЛАПАН", dir: "across", x: 1, y: 6, clue: "Створка в сердце, регулирующая поток крови" },
+                    { word: "АОРТА", dir: "down", x: 5, y: 4, clue: "Самая крупная артерия организма" },
+                    { word: "ИНФАРКТ", dir: "across", x: 2, y: 8, clue: "Отмирание участка сердечной мышцы" },
+                    { word: "РИТМ", dir: "down", x: 8, y: 3, clue: "Частота сердечных сокращений" }
+                ]
+            },
+            neurology: {
+                gridSize: 10,
+                words: [
+                    { word: "МОЗГ", dir: "across", x: 1, y: 1, clue: "Главный орган нервной системы" },
+                    { word: "НЕРВ", dir: "down", x: 2, y: 1, clue: "Пучок волокон, передающий импульсы" },
+                    { word: "СИНАПС", dir: "across", x: 3, y: 3, clue: "Место контакта между нейронами" },
+                    { word: "НЕЙРОН", dir: "down", x: 5, y: 2, clue: "Нервная клетка" },
+                    { word: "РЕФЛЕКС", dir: "across", x: 1, y: 5, clue: "Ответная реакция на раздражитель" },
+                    { word: "СПИННОЙ", dir: "down", x: 7, y: 3, clue: "Тип мозга, расположенный в позвоночнике" },
+                    { word: "КОРА", dir: "across", x: 2, y: 7, clue: "Внешний слой больших полушарий" },
+                    { word: "ИМПУЛЬС", dir: "down", x: 9, y: 4, clue: "Электрический сигнал в нервной системе" }
+                ]
+            }
+        };
+
+        let currentCrossword = null;
+        let answerMap = {};
+
+        function loadCrossword() {
+            const theme = document.getElementById('themeSelect').value;
+            currentCrossword = crosswords[theme];
+            
+            // Очищаем предыдущие данные
+            document.getElementById('grid').innerHTML = '';
+            document.getElementById('across-clues').innerHTML = '';
+            document.getElementById('down-clues').innerHTML = '';
+            document.getElementById('result').innerText = '';
+            answerMap = {};
+
+            initCrossword();
+        }
+
+        function initCrossword() {
+            const gridSize = currentCrossword.gridSize;
+            const gridElement = document.getElementById('grid');
+            const acrossCluesElement = document.getElementById('across-clues');
+            const downCluesElement = document.getElementById('down-clues');
+
+            // Устанавливаем размер сетки
+            gridElement.style.gridTemplateColumns = `repeat(${gridSize}, 45px)`;
+            gridElement.style.gridTemplateRows = `repeat(${gridSize}, 45px)`;
+
+            // Создаем пустую сетку
+            for (let y = 0; y < gridSize; y++) {
+                for (let x = 0; x < gridSize; x++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell black';
+                    cell.dataset.x = x;
+                    cell.dataset.y = y;
+                    cell.id = `cell-${x}-${y}`;
+                    gridElement.appendChild(cell);
+                }
+            }
+
+            // Заполняем сетку словами
+            currentCrossword.words.forEach((item, index) => {
+                const num = index + 1;
+
+                // Добавляем вопрос в список
+                const clueDiv = document.createElement('div');
+                clueDiv.className = 'clue-item';
+                clueDiv.innerHTML = `<span>${num}.</span> ${item.clue}`;
+                
+                if (item.dir === 'across') {
+                    acrossCluesElement.appendChild(clueDiv);
+                } else {
+                    downCluesElement.appendChild(clueDiv);
+                }
+
+                // Размещаем буквы в сетке
+                for (let i = 0; i < item.word.length; i++) {
+                    let cx = item.x + (item.dir === 'across' ? i : 0);
+                    let cy = item.y + (item.dir === 'down' ? i : 0);
+
+                    const cellId = `cell-${cx}-${cy}`;
+                    const cell = document.getElementById(cellId);
+
+                    // Превращаем черную ячейку в белую с инпутом
+                    if (cell.classList.contains('black')) {
+                        cell.classList.remove('black');
+
+                        // Добавляем номер только если это начало слова
+                        if (i === 0) {
+                            const numSpan = document.createElement('span');
+                            numSpan.className = 'cell-number';
+                            numSpan.innerText = num;
+                            cell.appendChild(numSpan);
+                        }
+
+                        const input = document.createElement('input');
+                        input.maxLength = 1;
+                        input.dataset.x = cx;
+                        input.dataset.y = cy;
+
+                        // Сохраняем правильный ответ
+                        answerMap[`${cx}-${cy}`] = item.word[i].toUpperCase();
+
+                        cell.appendChild(input);
+                    } else {
+                        // Если ячейка уже есть (пересечение)
+                        if (i === 0) {
+                            if (!cell.querySelector('.cell-number')) {
+                                const numSpan = document.createElement('span');
+                                numSpan.className = 'cell-number';
+                                numSpan.innerText = num;
+                                cell.appendChild(numSpan);
+                            } else {
+                                const existing = cell.querySelector('.cell-number');
+                                existing.innerText += '/' + num;
+                            }
+                        }
+                    }
+                }
+            });
+
+            // Добавляем обработчики событий
+            const inputs = document.querySelectorAll('.cell input');
+            inputs.forEach(input => {
+                input.addEventListener('keydown', handleNavigation);
+                input.addEventListener('input', handleInput);
+            });
+        }
+
+        function handleInput(e) {
+            if (e.target.value.length === 1) {
+                moveToNext(e.target);
+            }
+        }
+
+        function handleNavigation(e) {
+            const x = parseInt(e.target.dataset.x);
+            const y = parseInt(e.target.dataset.y);
+            let nextInput = null;
+
+            if (e.key === 'ArrowRight') nextInput = document.querySelector(`input[data-x="${x+1}"][data-y="${y}"]`);
+            if (e.key === 'ArrowLeft') nextInput = document.querySelector(`input[data-x="${x-1}"][data-y="${y}"]`);
+            if (e.key === 'ArrowDown') nextInput = document.querySelector(`input[data-x="${x}"][data-y="${y+1}"]`);
+            if (e.key === 'ArrowUp') nextInput = document.querySelector(`input[data-x="${x}"][data-y="${y-1}"]`);
+
+            if (nextInput) {
+                nextInput.focus();
+                e.preventDefault();
+            }
+        }
+
+        function moveToNext(currentInput) {
+            const x = parseInt(currentInput.dataset.x);
+            const y = parseInt(currentInput.dataset.y);
+            let nextInput = document.querySelector(`input[data-x="${x+1}"][data-y="${y}"]`);
+            if (!nextInput) {
+                nextInput = document.querySelector(`input[data-x="${x}"][data-y="${y+1}"]`);
+            }
+            if (nextInput) nextInput.focus();
+        }
+
+        function checkAnswers() {
+            let correctCount = 0;
+            let totalCells = Object.keys(answerMap).length;
+            let allCorrect = true;
+
+            for (let key in answerMap) {
+                const [x, y] = key.split('-');
+                const input = document.querySelector(`input[data-x="${x}"][data-y="${y}"]`);
+                const userVal = input.value.toUpperCase();
+                const correctVal = answerMap[key];
+
+                if (userVal === correctVal) {
+                    input.style.backgroundColor = '#d4edda';
+                    correctCount++;
+                } else {
+                    input.style.backgroundColor = '#f8d7da';
+                    allCorrect = false;
+                }
+            }
+
+            const resultDiv = document.getElementById('result');
+            if (allCorrect) {
+                resultDiv.innerText = '🎉 Поздравляем! Все верно!';
+                resultDiv.className = 'correct';
+            } else {
+                resultDiv.innerText = `Есть ошибки. Правильно заполнено ${correctCount} из ${totalCells}.`;
+                resultDiv.className = 'incorrect';
+            }
+        }
+
+        function resetGrid() {
+            const inputs = document.querySelectorAll('.cell input');
+            inputs.forEach(input => {
+                input.value = '';
+                input.style.backgroundColor = 'transparent';
+            });
+            document.getElementById('result').innerText = '';
+        }
+
+        // Загружаем первый кроссворд при старте
+        loadCrossword();
+    </script>
 </body>
 </html>
-```
